@@ -1,5 +1,6 @@
 // We also will be using our User model
 var User = require('../models/user');
+var _ = require('../public/javascript/underscore-min')
 
 // Simple index controller
 var indexController = {
@@ -64,6 +65,34 @@ var indexController = {
 
     })
 
+  },
+  filteredTables: function(req, res){
+    var username = req.user.username;
+    var level = req.query.level;
+    var cat = req.query.cat;
+    var matchedTables;
+
+
+    User.findOne({username: username}, function(error, user){
+      if(error){
+        console.log(error);
+      }
+      else{
+        if (level !== undefined && cat !== undefined)
+          matchedTables = _.where(user.tablelist, {level: level, category: cat});
+        else if (level !== undefined)
+          matchedTables = _.where(user.tablelist, {level:level});
+        else if (cat !== undefined)
+          matchedTables = _.where(user.tablelist, {category:cat});
+        else 
+          matchedTables = _.where(user.tablelist)
+
+
+        console.log(matchedTables)
+        res.send(matchedTables)
+      }
+
+    })
   }
 
 

@@ -1,21 +1,25 @@
 extends layout
 
+block links
+	link(rel="stylesheet", type="text/css", href="/css/practice.css")
+
+
 block content
 	div.container-fluid
 		div.row
 			div.col-md-2.text-center
 				h3 Level of Difficulty
 				- for (var i = 1; i < 13; i++)
-					h4 #{i}
+					h4.level #{i}
 
-				h3 Category of Shots
-				h4 8 ball
-				h4 9 ball
-				h4 10 ball
-				h4 Straight pool
-				h4 Single shot
-				h4 Multiple Shots
-				h4 Position shots
+				h3.cat Category of Shots
+				h4.cat 8 ball
+				h4.cat 9 ball
+				h4.cat 10 ball
+				h4.cat Straight pool
+				h4.cat Single shot
+				h4.cat Multiple Shots
+				h4.cat Position shots
 			div.col-md-10
 				- each table, index in tablelist
 					div= table.title
@@ -41,3 +45,16 @@ block content
 
 							div.modal-footer
 								button.btn.btn-default(type="button" data-dismiss="modal") close
+
+block script
+	script#entry-template(type="text/x-handlebars-template").
+		<div>{{title}}</div>
+		<div class="table">
+			<img class="tableImage" src="../image/pool-table-top-view.png" />
+			{{#each array}}
+				<img class="ball-on-table" src="../image/{{this.typeOfBall}}.png" style="top:{{this.location.top}}px; left: {{this.location.left}}px" />
+			{{/each}}
+			<div class="note-practice-shots">{{note}}</div>
+		</div>
+	script(type="text/javascript", src="/javascript/practice.js")
+
