@@ -20,7 +20,7 @@ $(function(){
 		var temp = $('.cat.yellow').text()
 		if ( temp !== '')
 			cat = temp;
-
+					
 
 		var selectedLevel = $(this);
 		if ( selectedLevel.text() === level){
@@ -63,7 +63,6 @@ $(function(){
 		if ( temp !== '')
 			level = temp;
 
-
 		var selectedCat = $(this);
 		if ( selectedCat.text() === cat){
 			selectedCat.removeClass('yellow');
@@ -88,7 +87,7 @@ $(function(){
 			 	};
 			 	$(table.array).each(function(i, ball){
 			 		tableInfo.array.push(ball)
-			 	})
+			 	})		
 
 				var html = template(tableInfo);
 				$('.col-md-10').append(html);
@@ -97,6 +96,7 @@ $(function(){
 
 		})
 	})
+
 
 
 	
