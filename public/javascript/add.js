@@ -18,6 +18,69 @@ Ball.prototype.create = function(){
 };
 
 $(function(){
+	var level;
+	var cat;
+
+	$('.level').click(function(){
+		var selectedLevel = $(this);
+		if ( selectedLevel.text() === level){
+			selectedLevel.removeClass('yellow');
+			level = undefined;
+
+		}
+		else{
+			$('.level').removeClass('yellow');
+			selectedLevel.addClass('yellow');
+			level = selectedLevel.text();
+
+		}
+
+	})
+
+	$('.cat').click(function(){
+		var selectedCat= $(this);
+		if ( selectedCat.text() === cat){
+			selectedCat.removeClass('yellow');
+			cat = undefined;
+		}
+		else{
+			$('.cat').removeClass('yellow');
+			selectedCat.addClass('yellow');
+			cat = selectedCat.text();
+
+		}
+
+	})
+
+	// this is the variable that holds the selected ball when one of 
+	// the balls is selected  to be placed on the table on Add Shots page 
+	var selectedBall = "";
+
+	// ball gets a border when being clicked on and its data type is 
+	// stored into the a variable
+	$('.ball').click(function(){
+
+		$('.ball').removeClass('border');
+		$(this).addClass('border');	
+
+		selectedBall = $(this).data('type');
+
+
+
+	});
+
+	// a ball is placed onto the table 
+	$('.table').click(function(e){
+		// stop proceeding if no ball is clicked on/selected
+		if( selectedBall === ""){
+			return false;
+		}
+
+		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX})
+		ball.create();
+		$(this).append(ball.el);
+	});
+
 	//submitting a new shot on Add Shots page
 	$('#table-info').on('submit', function(e){
 		e.preventDefault();
@@ -57,35 +120,6 @@ $(function(){
 				console.log(result)
 			});
 
-	});
-
-	// this is the variable that holds the selected ball when one of 
-	// the balls is selected  to be placed on the table on Add Shots page 
-	var selectedBall = "";
-
-	// ball gets a border when being clicked on and its data type is 
-	// stored into the a variable
-	$('.ball').click(function(){
-
-		$('.ball').removeClass('border');
-		$(this).addClass('border');	
-
-		selectedBall = $(this).data('type');
-
-
-
-	});
-
-	// a ball is placed onto the table 
-	$('.table').click(function(e){
-		// stop proceeding if no ball is clicked on/selected
-		if( selectedBall === ""){
-			return false;
-		}
-
-		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX})
-		ball.create();
-		$(this).append(ball.el);
 	});
 
 });

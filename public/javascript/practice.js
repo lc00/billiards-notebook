@@ -15,8 +15,15 @@ $(function(){
 	var cat;
 
 	$('.level').click(function(){
+
+		// get the category of shots 
+		var temp = $('.cat.yellow').text()
+		if ( temp !== '')
+			cat = temp;
+
+
 		var selectedLevel = $(this);
-		if ( selectedLevel === level){
+		if ( selectedLevel.text() === level){
 			selectedLevel.removeClass('yellow');
 			level = undefined;
 		}
@@ -30,11 +37,6 @@ $(function(){
 			$('.col-md-10').empty();
 			 var source = $("#entry-template").html();
 			 var template = Handlebars.compile(source);
-			 // var context = {
-			 // 	title: result.title,
-			 // 	typeOfBall: result.array[0].typeOfBall,
-			 // 	note: result.note
-			 // }
 
 			 $(matchedTables).each(function(index, table){
 			 	var tableInfo = {
@@ -51,7 +53,48 @@ $(function(){
 
 			 })
 
-			// console.log(matchedTables)
+		})
+	})
+
+	$('.cat').click(function(){
+		
+		// get the category of shots 
+		var temp = $('.level.yellow').text()
+		if ( temp !== '')
+			level = temp;
+
+
+		var selectedCat = $(this);
+		if ( selectedCat.text() === cat){
+			selectedCat.removeClass('yellow');
+			cat = undefined;
+		}
+		else {
+			$('.cat').removeClass('yellow');
+			selectedCat.addClass('yellow');
+			cat = selectedCat.text();
+		}
+
+		$.get('filtered-tables', {level: level, cat: cat}, function(matchedTables){
+			$('.col-md-10').empty();
+			 var source = $("#entry-template").html();
+			 var template = Handlebars.compile(source);
+
+			 $(matchedTables).each(function(index, table){
+			 	var tableInfo = {
+			 		title: table.title,
+				 	note: table.note,
+				 	array: []
+			 	};
+			 	$(table.array).each(function(i, ball){
+			 		tableInfo.array.push(ball)
+			 	})
+
+				var html = template(tableInfo);
+				$('.col-md-10').append(html);
+
+			 })
+
 		})
 	})
 
