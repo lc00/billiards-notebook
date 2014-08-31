@@ -5,7 +5,7 @@ block links
 
 
 block content
-	div.container-fluid
+	div.container.margin-top100
 		div.row
 			div.col-md-2.text-center
 				h3.font-size30 Level of Difficulty
@@ -34,7 +34,7 @@ block content
 								img.ball-on-table(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px; height: 34px; width: 34px")
 							else
 								img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
-						div.note-practice-shots= table.note
+						div.note-practice-shots.margin-left150= table.note
 
 					div.modal.fade#myModal(tabindex="-1" role="dialog" ariala-belledby="myModalLabel" aria-hidden="true")
 						div.modal-dialog(style="-webkit-transform: scale(1.5,1.5)")

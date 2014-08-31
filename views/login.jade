@@ -8,16 +8,16 @@ block content
     h3= error
 
   //- Form for handling existing user logins.
-  h1 Existing Users
-  form(action="/auth/login", method="post")
-    input(type="text", name="username", placeholder="Username")
-    input(type="password", name="password", placeholder="Password")
+  h1.container.margin-top100 Existing Users
+  form.container(action="/auth/login", method="post")
+    input.text-center(type="text", name="username", placeholder="Username")
+    input.text-center(type="password", name="password", placeholder="Password")
     input(type="submit" value = "Sign In")
 
   //- Form for allowing new users to register.
-  h1 Register
-  form(action="/auth/signup", method="post")
-    input(type="text", name="username", placeholder="Username")
-    input(type="email", name="email", placeholder="Email")
-    input(type="password", name="password", placeholder="Password")
+  h1.container Register
+  form.container(action="/auth/signup", method="post")
+    input.text-center(type="text", name="username", placeholder="Username")
+    input.text-center(type="email", name="email", placeholder="Email")
+    input.text-center(type="password", name="password", placeholder="Password")
     input(type="submit")

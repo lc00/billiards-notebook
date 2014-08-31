@@ -1,6 +1,7 @@
 body{
 	font-family: Just Another Hand, cursive;
 	font-size: 30px;
+	background-image: url('../image/lined_paper.png')
 }
 
 .font-size30{
@@ -18,15 +19,18 @@ body{
 	font-size: 40px;
 }
 
+.margin-left150{
+	margin-left: 150px;
+}
+
+.margin-top100{
+	margin-top: 100px;
+}
+
 #log-out{
 	display: none;
 	float: right;	
 }
-
-.margin-top70{
-	margin-top: 70px;
-}
-
 .left{
 	position: relative;
 }
