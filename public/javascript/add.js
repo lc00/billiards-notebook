@@ -7,14 +7,31 @@ var Ball = function(type, location){
 }
 Ball.prototype.create = function(){
 	// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
-	this.el = $('<img>')
-		.attr('src', '/image/' + this.type + '.png')
-		.addClass('ball-on-table')
-		.attr('data-type', this.type)
-		.css({
-				'top': this.top - 12.5,
-				'left': this.left - 12.5
-		});
+	if (this.type === 0){
+			this.el = $('<img>')
+			.attr('src', '/image/' + this.type + '.svg')
+			.addClass('ball-on-table')
+			.attr('data-type', this.type)
+			.css({
+					'top': this.top - 12.5 - 4.5,
+					'left': this.left - 12.5 - 4.5,
+					'height': 34,
+					'width': 34
+			})
+			
+	}
+
+
+	else {
+		this.el = $('<img>')
+			.attr('src', '/image/' + this.type + '.png')
+			.addClass('ball-on-table')
+			.attr('data-type', this.type)
+			.css({
+					'top': this.top - 12.5,
+					'left': this.left - 12.5
+			});
+	}
 };
 
 $(function(){
