@@ -8,18 +8,18 @@ block content
 	div.container-fluid
 		div.row
 			div.col-md-2.text-center
-				h3 Level of Difficulty
+				h3.font-size30 Level of Difficulty
 				- for (var i = 1; i < 13; i++)
-					h4.level #{i}
+					h4.level.font-size20 #{i}
 
-				h3.cat Category of Shots
-				h4.cat 8 ball
-				h4.cat 9 ball
-				h4.cat 10 ball
-				h4.cat Straight pool
-				h4.cat Single shot
-				h4.cat Multiple Shots
-				h4.cat Position shots
+				h3.font-size30 Category of Shots
+				h4.cat.font-size20 8 ball
+				h4.cat.font-size20 9 ball
+				h4.cat.font-size20 10 ball
+				h4.cat.font-size20 Straight pool
+				h4.cat.font-size20 Single shot
+				h4.cat.font-size20 Multiple Shots
+				h4.cat.font-size20 Position shots
 			div.col-md-10
 				- each table, index in tablelist
 					div= table.title

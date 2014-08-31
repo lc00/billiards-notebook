@@ -1,3 +1,23 @@
+body{
+	font-family: Just Another Hand, cursive;
+	font-size: 30px;
+}
+
+.font-size30{
+	font-size: 30px;
+}
+.font-size20{
+	font-size: 20px;
+}
+
+.font-size60{
+	font-size: 60px;
+}
+
+.font-size40{
+	font-size: 40px;
+}
+
 #log-out{
 	display: none;
 	float: right;	
