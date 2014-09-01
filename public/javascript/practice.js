@@ -1,7 +1,7 @@
 $(function(){
 	
 	// modal mode
-	$('.table').on("click", function(e){
+	$(document).on("click", '.table', function(e){
 
 		var selectedTable = $(this).clone();
 
