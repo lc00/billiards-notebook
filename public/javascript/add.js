@@ -11,12 +11,13 @@ Ball.prototype.create = function(){
 			this.el = $('<img>')
 			.attr('src', '/image/' + this.type + '.svg')
 			.addClass('ball-on-table')
+			.addClass('cueball')
 			.attr('data-type', this.type)
 			.css({
 					'top': this.top - 12.5 - 4.5,
 					'left': this.left - 12.5 - 4.5,
-					'height': 34,
-					'width': 34
+					// 'height': 34,
+					// 'width': 34
 			})
 			
 	}

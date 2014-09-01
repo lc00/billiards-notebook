@@ -35,21 +35,31 @@ $(function(){
 
 		$.get('filtered-tables', {level: level, cat: cat}, function(matchedTables){
 			$('.col-md-10').empty();
-			 var source = $("#entry-template").html();
-			 var template = Handlebars.compile(source);
 
-			 $(matchedTables).each(function(index, table){
-			 	var tableInfo = {
-			 		title: table.title,
-				 	note: table.note,
-				 	array: []
-			 	};
-			 	$(table.array).each(function(i, ball){
-			 		tableInfo.array.push(ball)
-			 	})
+				var source = $("#entry-template").html();
+				var template = Handlebars.compile(source);
 
-				var html = template(tableInfo);
-				$('.col-md-10').append(html);
+				// helper function to determine if equals condition
+			 	Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+				  if(v1 === v2) {
+				    return options.fn(this);
+				  }
+				  return options.inverse(this);
+				});
+
+
+			 	$(matchedTables).each(function(index, table){
+				 	var tableInfo = {
+				 		title: table.title,
+					 	note: table.note,
+					 	array: []
+				 	};
+				 	$(table.array).each(function(i, ball){
+				 		tableInfo.array.push(ball)
+				 	})
+
+					var html = template(tableInfo);
+					$('.col-md-10').append(html);
 
 			 })
 

@@ -31,7 +31,7 @@ block content
 							- var top = i.location.top
 							- var left = i.location.left
 							if num==='0'
-								img.ball-on-table(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px; height: 34px; width: 34px")
+								img.ball-on-table.cueball(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px")
 							else
 								img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
 						div.note-practice-shots.margin-left150= table.note
@@ -55,17 +55,21 @@ block script
 		<div class="table">
 			<img class="tableImage" src="../image/pool-table-top-view.png" />
 			{{#each array}}
-				<img class="ball-on-table" src="../image/{{this.typeOfBall}}.png" style="top:{{this.location.top}}px; left: {{this.location.left}}px" />
+				{{#ifCond typeOfBall '0'}}
+					<img class="ball-on-table cueball" src="../image/0.svg" style="top:{{location.top}}px; left: {{location.left}}px" />
+				{{else}}
+					<img class="ball-on-table" src="../image/{{typeOfBall}}.png" style="top:{{location.top}}px; left: {{location.left}}px" />					
+				{{/ifCond}}
 			{{/each}}
-			<div class="note-practice-shots">{{note}}</div>
-		</div>
+			<div>{{note}}</div>
+		</div>	
 
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		        <h4 class="modal-title" id="myModalLabel"></h4>
 		      </div>
 		      <div class="modal-body">
 
