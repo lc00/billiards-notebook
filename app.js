@@ -29,7 +29,7 @@ var authenticationController = require('./controllers/authentication');
 
 
 // Connect to the database
-mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/billiards-notebook);
+mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/billiards-notebook');
 
 
 // Define a base express app...
