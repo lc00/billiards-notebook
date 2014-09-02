@@ -1,43 +1,55 @@
 $.fn.serializeObject=function(){"use strict";var a={},b=function(b,c){var d=a[c.name];"undefined"!=typeof d&&d!==null?$.isArray(d)?d.push(c.value):a[c.name]=[d,c.value]:a[c.name]=c.value};return $.each(this.serializeArray(),b),a};
 
-var Ball = function(type, location){
-	this.type = type;
-	this.top = location.top;
-	this.left = location.left;
-}
-Ball.prototype.create = function(){
-	// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
-	if (this.type === 0){
-			this.el = $('<img>')
-			.attr('src', '/image/' + this.type + '.svg')
-			.addClass('ball-on-table')
-			.addClass('cueball')
-			.attr('data-type', this.type)
-			.css({
-					'top': this.top - 12.5 - 4.5,
-					'left': this.left - 12.5 - 4.5,
-					// 'height': 34,
-					// 'width': 34
-			})
-			
-	}
-
-
-	else {
-		this.el = $('<img>')
-			.attr('src', '/image/' + this.type + '.png')
-			.addClass('ball-on-table')
-			.attr('data-type', this.type)
-			.css({
-					'top': this.top - 12.5,
-					'left': this.left - 12.5
-			});
-	}
-};
-
 $(function(){
+	var Ball = function(type, location){
+		this.type = type;
+		this.top = location.top;
+		this.left = location.left;
+	}
+	Ball.prototype.create = function(){
+		// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
+		if (this.type === 0){
+				this.el = $('<img>')
+				.attr('src', '/image/' + this.type + '.svg')
+				.addClass('ball-on-table')
+				.addClass('cueball')
+				.attr('data-type', this.type)
+				.css({
+						'top': this.top - 12.5 - 4.5,
+						'left': this.left - 12.5 - 4.5,
+						// 'height': 34,
+						// 'width': 34
+				})
+				
+		}
+
+
+		else {
+			this.el = $('<img>')
+				.attr('src', '/image/' + this.type + '.png')
+				.addClass('ball-on-table')
+				.attr('data-type', this.type)
+				.css({
+						'top': this.top - 12.5,
+						'left': this.left - 12.5
+				});
+		}
+	};
+
 	var level;
 	var cat;
+
+		//clear filter
+	$('.clear-filter').click(function(e){
+		e.preventDefault();
+		$('.level').removeClass('yellow');
+		$('.cat').removeClass('yellow');
+
+		level = undefined;
+		cat = undefined;
+
+
+	})
 
 	$('.level').click(function(){
 		var selectedLevel = $(this);

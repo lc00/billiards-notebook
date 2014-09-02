@@ -35,6 +35,11 @@ body{
 	position: relative;
 }
 
+.clear-filter{
+	font-size: 25px;
+	background-color: #FFFF33;
+}
+
 .yellow{
 	background-color: yellow;
 }
