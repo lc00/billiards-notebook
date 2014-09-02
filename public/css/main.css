@@ -1,5 +1,10 @@
+@font-face{
+	font-family: Just Another Hand;
+	src: url(JustAnotherHand.ttf);
+}
+
 body{
-	font-family: Just Another Hand, cursive;
+	font-family: Just Another Hand;
 	font-size: 30px;
 	background-image: url('../image/lined_paper.png')
 }

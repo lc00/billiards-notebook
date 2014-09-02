@@ -1,4 +1,4 @@
-// We'll need access to passport in order to call authentication methods
+  // We'll need access to passport in order to call authentication methods
 var passport = require('passport');
 
 // We also will be using our User model
