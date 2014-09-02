@@ -98,9 +98,9 @@ app.get('/practice-shots', indexController.practiceShots);
 
 app.get('/filtered-tables', indexController.filteredTables);
 
-
+var port = process.env.PORT || 5297;
 
 // Start our server!
-var server = app.listen(5297, function() {
-	console.log('Express server listening on port ' + server.address().port);
+var server = app.listen(port, function() {
+	console.log('Express server listening on port ' + port);
 });
