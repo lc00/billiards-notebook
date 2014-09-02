@@ -6,12 +6,5 @@ $(function(){
 		$('#log-out').slideToggle('slow');
 	});
 
-	$('.clear-filter').on('click', function(e){
-		e.preventDefault();
-		
-		
-	})
-
-
 
 });

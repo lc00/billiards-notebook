@@ -37,7 +37,7 @@ body{
 
 .clear-filter{
 	font-size: 25px;
-	background-color: #FFFF33;
+	/*background-color: #FFCC00;*/
 }
 
 .yellow{
@@ -68,5 +68,11 @@ body{
 	width: 34px;
 }
 
+.level:hover{
+	background-color: yellow;
+}
+.cat:hover{
+	background-color: yellow;
+}
 
 
