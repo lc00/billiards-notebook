@@ -28,8 +28,8 @@ body{
 }
 
 #log-out{
-	display: none;
-	float: right;	
+	/*display: none;*/
+	/*float: right;	*/
 }
 .left{
 	position: relative;

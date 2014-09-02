@@ -28,12 +28,12 @@ body
 							a#add-shot(href="/add-shots") Add Shots
 						li(class="#{pageName==='Practice Shots'?'active':''} link")
 							a#practice-shot(href="/practice-shots") Practice Shots
-						li(class="#{pageName==='Archive'?'active':''} link")
-							a#archive(href="/archive") Archive
+						//- li(class="#{pageName==='Archive'?'active':''} link")
+						//- 	a#archive(href="/archive") Archive
 
 					if user
-						div.navbar-text.navbar-right#user-name #{user.username}
-						div.navbar-text.navbar-right#log-out 
+						div.navbar-text#user-name #{user.username}
+						div.navbar-text#log-out 
 							a(href="/auth/logout") Log Out
 					else
 						//- else display sign in link @ top right corner
