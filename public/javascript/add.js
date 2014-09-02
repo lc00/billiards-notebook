@@ -144,12 +144,23 @@ $(function(){
 
 			// POST to the server with username, form data, and balls on the table info
 			$.post('/newTable', {
+				level: level,
+				cat: cat,
 				form_data: formData, 
 				array: JSON.stringify(arrayOfBalls) 
-			}, function(result){
-				console.log(result)
+				}, function(result){
+					console.log(result)
 			});
 
+			//clear all information on Add Shots page
+			$('.level').removeClass('yellow');
+			$('.cat').removeClass('yellow');
+			$('.ball').removeClass('border');
+			$('.table img').slice(1).remove();
+			$('#title').val('');
+			$('#note').val('');
 	});
+
+
 
 });

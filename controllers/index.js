@@ -24,9 +24,13 @@ var indexController = {
     });
 
   },
+  // add new table to the database
   newTable: function(req, res){
 
     var username = req.user.username;
+
+    var level = req.body.level;
+    var cat = req.body.cat;
 
     var title = req.body.form_data.title;
 
@@ -39,10 +43,10 @@ var indexController = {
         console.log(error)
       }
       else{
-        user.tablelist.push({title: title, note: note, array: array }) 
+        user.tablelist.push({title: title, note: note, array: array, level: level, category: cat }) 
         user.save();
         res.send({ 
-          result: [title, note, array]
+          result: [title, note, array, level, cat]
         });
       }
         
@@ -74,7 +78,6 @@ var indexController = {
     var cat = req.query.cat;
     var matchedTables;
 
-
     User.findOne({username: username}, function(error, user){
       if(error){
         console.log(error);
@@ -89,8 +92,6 @@ var indexController = {
         else 
           matchedTables = _.where(user.tablelist)
 
-
-        console.log(matchedTables)
         res.send(matchedTables)
       }
 
