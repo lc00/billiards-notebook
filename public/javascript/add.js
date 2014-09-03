@@ -36,6 +36,18 @@ $(function(){
 		}
 	};
 
+	// places balls from their individual starting position before falling into the page
+	for(var i=0; i<16; i++){
+		$('#ball'+i).css('left', i*50);
+		console.log(i)
+	}
+
+  var ball = document.getElementsByClassName("ball");
+  // var hello = document.getElementById("hello");
+  TweenLite.to(ball, 3, {top:"250px", ease: Bounce.easeOut});
+  // TweenLite.to(hello, 5, {top:"632px", ease: Bounce.easeOut});
+
+
 	var level;
 	var cat;
 
