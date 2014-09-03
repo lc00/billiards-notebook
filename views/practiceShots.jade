@@ -35,7 +35,7 @@ block content
 							- var top = i.location.top
 							- var left = i.location.left
 							if num==='0'
-								img.ball-on-table.cueball(src="/image/" + "#{num}.svg", style="top: #{top}px; left: #{left}px")
+								img.ball-on-table.cueball(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
 							else
 								img.ball-on-table(src="/image/" + "#{num}.png", style="top: #{top}px; left: #{left}px")
 						div.note-practice-shots.margin-left150= table.note
@@ -60,7 +60,7 @@ block script
 			<img class="tableImage" src="../image/pool-table-top-view.png" />
 			{{#each array}}
 				{{#ifCond typeOfBall '0'}}
-					<img class="ball-on-table cueball" src="../image/0.svg" style="top:{{location.top}}px; left: {{location.left}}px" />
+					<img class="ball-on-table cueball" src="../image/0.png" style="top:{{location.top}}px; left: {{location.left}}px" />
 				{{else}}
 					<img class="ball-on-table" src="../image/{{typeOfBall}}.png" style="top:{{location.top}}px; left: {{location.left}}px" />					
 				{{/ifCond}}

@@ -10,7 +10,7 @@ $(function(){
 		// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
 		if (this.type === 0){
 				this.el = $('<img>')
-				.attr('src', '/image/' + this.type + '.svg')
+				.attr('src', '/image/' + this.type + '.png')
 				.addClass('ball-on-table')
 				.addClass('cueball')
 				.attr('data-type', this.type)
