@@ -27,7 +27,7 @@ block content
 			div.col-md-10
 				- each table, index in tablelist
 					div= table.title
-					div.table(data-title="#{table.title}" data-user="#{user.username}" data-index="#{index}") 
+					div.table(data-title="#{table.title}" data-user="#{user.username}" data-index="#{table._id}") 
 						img.tableImage(src="/image/pool-table-top-view.png")
 
 						-for i in table.array
@@ -49,7 +49,6 @@ block content
 										span.sr-only Close
 									h4.modal-title#myModalLabel Practice Table
 								div.modal-body
-
 								div.modal-footer
 									button.btn.btn-default(type="button" data-dismiss="modal") close
 
