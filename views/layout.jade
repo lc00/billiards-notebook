@@ -1,70 +1,66 @@
 doctype html
 html(lang='en')
-head
-	meta( http-equiv="Content-Type" content="text/html" charset="utf-8")
-	meta(name="viewport", content="width=device-width initial-scale=1")
-	meta(name='description', content="Improve your game by creating practice table layouts fast, and retrieve those tables for practice sessions")
-	title billiards notebook
-	link(rel="stylesheet", type="text/css", href="/css/bootstrap.min.css")
-	//- link(rel='stylesheet', type='text/css, href="/css/JustAnotherHand.ttf')
-	//- link(href='http://fonts.googleapis.com/css?family=Chewy', rel='stylesheet', type='text/css')
-	link(rel="stylesheet", type="text/css", href="/css/main.css")
-
-	block links
-
-
-body
-	//- if user signed in, display 'username' @ top right corner
-	div.navbar.navbar-default.navbar-fixed-top(role="navigation")
-		div.container
-			div.navbar-header
-				button.navbar-toggle(type="button", data-toggle="collapse", data-target="#stuff-collapse")
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-				div.navbar-collapse.collapse#stuff-collapse
-					ul.nav.navbar-nav.navbar-left
-						li(class="#{pageName==='Add Shots'?'active':''} link")
-							a#add-shot(href="/add-shots") Add Shots
-						li(class="#{pageName==='Practice Shots'?'active':''} link")
-							a#practice-shot(href="/practice-shots") Practice Shots
-						//- li(class="#{pageName==='Archive'?'active':''} link")
-						//- 	a#archive(href="/archive") Archive
-
-					if user
-						div.navbar-text#user-name #{user.username}
-						div.navbar-text#log-out 
-							a(href="/auth/logout") Log Out
-					else
-						//- else display sign in link @ top right corner
-						div.navbar-text
-							a(id="sign-in" href="/auth/login") Sign In
-
-					ul.nav.navbar-nav.navbar-right
-						li
-							.fb-share-button.pull-left(data-href="http://billiards-notebook.herokuapp.com")
-
-	block content
-
-	#fb-root
-	script.
-		(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-
-	script(type='text/javascript', src="/javascript/jquery-2.1.1.min.js")
-	script(type='text/javascript', src="/javascript/bootstrap.min.js")
-	script(type='text/javascript', src="/javascript/underscore-min.js")
-	script(type='text/javascript', src="/javascript/handlebars-v1.3.0.js")
-
-	script(type='text/javascript', src="/javascript/main.js")
-
-	block script
+	head
+		meta(http-equiv="Content-Type", content="text/html", charset="utf-8")
+		meta(name="viewport", content="width=device-width initial-scale=1")
+		meta(name='description', content="Improve your game by creating practice table layouts fast, and retrieve those tables for practice sessions")
+		title billiards notebook
+		link(rel="stylesheet", type="text/css", href="/css/bootstrap.min.css")
+		//- link(rel='stylesheet', type='text/css, href="/css/JustAnotherHand.ttf')
+		//- link(href='http://fonts.googleapis.com/css?family=Chewy', rel='stylesheet', type='text/css')
+		link(rel="stylesheet", type="text/css", href="/css/main.css")
+		block links
 
 
-	
+	body
+		#fb-root
+		script.
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		//- if user signed in, display 'username' @ top right corner
+		div.navbar.navbar-default.navbar-fixed-top(role="navigation")
+			div.container
+				div.navbar-header
+					button.navbar-toggle(type="button", data-toggle="collapse", data-target="#stuff-collapse")
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					div.navbar-collapse.collapse#stuff-collapse
+						ul.nav.navbar-nav.navbar-left
+							li(class="#{pageName==='Add Shots'?'active':''} link")
+								a#add-shot(href="/add-shots") Add Shots
+							li(class="#{pageName==='Practice Shots'?'active':''} link")
+								a#practice-shot(href="/practice-shots") Practice Shots
+							//- li(class="#{pageName==='Archive'?'active':''} link")
+							//- 	a#archive(href="/archive") Archive
+							ul.nav.navbar-nav.navbar-right
+								if user
+									li.navbar-text#user-name #{user.username}
+									li.navbar-text#log-out 
+										a(href="/auth/logout") Log Out
+								else
+									//- else display sign in link @ top right corner
+									li.navbar-text
+										a(id="sign-in" href="/auth/login") Sign In
+								li.fb-share-button.pull-left(data-href="http://billiards-notebook.herokuapp.com")
+
+		block content
+
+
+		script(type='text/javascript', src="/javascript/jquery-2.1.1.min.js")
+		script(type='text/javascript', src="/javascript/bootstrap.min.js")
+		script(type='text/javascript', src="/javascript/underscore-min.js")
+		script(type='text/javascript', src="/javascript/handlebars-v1.3.0.js")
+
+		script(type='text/javascript', src="/javascript/main.js")
+
+		block script
+
+
+		
