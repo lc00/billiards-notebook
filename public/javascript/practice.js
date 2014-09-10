@@ -8,7 +8,7 @@ $(function(){
 		var selectedTable = $(this).clone();
 
 		$('.modal-body').html(selectedTable);
-		$("#myModal").modal('toggle')
+		$("#myModal").modal('toggle');
 	});
 
 	getFilteredTables = function(level, cat){
@@ -22,17 +22,17 @@ $(function(){
 				 	array: []
 			 	};
 			 	$(table.array).each(function(i, ball){
-			 		tableInfo.array.push(ball)
-			 	})
+			 		tableInfo.array.push(ball);
+			 	});
 
 				var html = template(tableInfo);
 				$('.col-md-10').append(html);
 
-			 })
+			});
 
-		})
+		});
 
-	}
+	};
 
 		//clear filter
 	$('.clear-filter').click(function(e){
@@ -43,9 +43,9 @@ $(function(){
 		level = undefined;
 		cat = undefined;
 
-		getFilteredTables(level, cat)
+		getFilteredTables(level, cat);
 
-	})
+	});
 
 
 	var source = $("#entry-template").html();
@@ -62,7 +62,7 @@ $(function(){
 
 	$('.level').click(function(){
 		// get the category of shots 
-		var temp = $('.cat.yellow').text()
+		var temp = $('.cat.yellow').text();
 		if ( temp !== '')
 			cat = temp;
 					
@@ -77,12 +77,12 @@ $(function(){
 			level = selectedLevel.text();
 		}
 
-		getFilteredTables(level, cat)
-	})
+		getFilteredTables(level, cat);
+	});
 
 	$('.cat').click(function(){		
 		// get the category of shots 
-		var temp = $('.level.yellow').text()
+		var temp = $('.level.yellow').text();
 		if ( temp !== '')
 			level = temp;
 
@@ -97,11 +97,9 @@ $(function(){
 			cat = selectedCat.text();
 		}
 
-		getFilteredTables(level, cat)
+		getFilteredTables(level, cat);
 
-	})
-
-
-
+	});
 	
-})
+});
+

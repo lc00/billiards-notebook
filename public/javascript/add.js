@@ -1,13 +1,10 @@
-$.fn.serializeObject=function(){"use strict";var a={},b=function(b,c){var d=a[c.name];"undefined"!=typeof d&&d!==null?$.isArray(d)?d.push(c.value):a[c.name]=[d,c.value]:a[c.name]=c.value};return $.each(this.serializeArray(),b),a};
-
-
 $(document).on('ready', function(){
 // $(function(){
 	var Ball = function(type, location){
 		this.type = type;
 		this.top = location.top;
 		this.left = location.left;
-	}
+	};
 	Ball.prototype.create = function(){
 		// <img src="/image/0.png" class="ball-on-table" data-type="0" style="top: 0; left: 0">
 		if (this.type === 0){
@@ -21,7 +18,7 @@ $(document).on('ready', function(){
 						'left': this.left - 12.5 - 4.5,
 						// 'height': 34,
 						// 'width': 34
-				})
+				});
 				
 		}
 
@@ -63,25 +60,22 @@ $(document).on('ready', function(){
 		cat = undefined;
 
 
-	})
+	});
 
-	$('.level').click(function(){
+	$('.level').click(function() {
 		var selectedLevel = $(this);
-		if ( selectedLevel.text() === level){
+		if ( selectedLevel.text() === level) {
 			selectedLevel.removeClass('yellow');
 			level = undefined;
-
 		}
 		else{
 			$('.level').removeClass('yellow');
 			selectedLevel.addClass('yellow');
 			level = selectedLevel.text();
-
 		}
+	});
 
-	})
-
-	$('.cat').click(function(){
+	$('.cat').click(function() {
 		var selectedCat= $(this);
 		if ( selectedCat.text() === cat){
 			selectedCat.removeClass('yellow');
@@ -94,7 +88,7 @@ $(document).on('ready', function(){
 
 		}
 
-	})
+	});
 
 	// this is the variable that holds the selected ball when one of 
 	// the balls is selected  to be placed on the table on Add Shots page 
@@ -120,7 +114,7 @@ $(document).on('ready', function(){
 			return false;
 		}
 
-		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX})
+		var ball = new Ball(selectedBall, {top: e.offsetY, left: e.offsetX});
 		ball.create();
 		$(this).append(ball.el);
 	});
@@ -142,10 +136,7 @@ $(document).on('ready', function(){
 			var arrayOfBalls = [];
 			var ballsOnTable = $('.ball-on-table');
 			$.each(ballsOnTable, function(index, el){
-				var el = $(el);
-
-
-				// console.dir(el)
+				el = $(el);
 
 				arrayOfBalls.push({ 
 					'typeOfBall': el.context.dataset.type,
@@ -163,7 +154,7 @@ $(document).on('ready', function(){
 				form_data: formData, 
 				array: JSON.stringify(arrayOfBalls) 
 				}, function(result){
-					console.log(result)
+					console.log(result);
 			});
 
 			//clear all information on Add Shots page

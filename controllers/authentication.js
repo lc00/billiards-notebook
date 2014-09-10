@@ -48,15 +48,12 @@ var authenticationController = {
   // This is the post handler for any incoming login attempts.
   // Passing "next" allows us to easily handle any errors that may occur.
   processLogin: function(req, res, next){
-
-
     // Passport's "authenticate" method returns a method, so we store it
     // in a variable and call it with the proper arguments afterwards.
     // We are using the "local" strategy defined (and used) in the
     // config/passport.js file
     var authFunction = passport.authenticate('local', function(err, user, info){
 
-      console.log()
       // If there was an error, allow execution to move to the next middleware
       if(err) return next(err);
 
