@@ -24,7 +24,7 @@ html(lang='en')
 		//- if user signed in, display 'username' @ top right corner
 		div.navbar.navbar-default.navbar-fixed-top(role="navigation")
 			div.container
-				div.navbar-header
+				div.navbar-header(style='width: 100%')
 					button.navbar-toggle(type="button", data-toggle="collapse", data-target="#stuff-collapse")
 						span.sr-only Toggle navigation
 						span.icon-bar
@@ -38,16 +38,16 @@ html(lang='en')
 								a#practice-shot(href="/practice-shots") Practice Shots
 							//- li(class="#{pageName==='Archive'?'active':''} link")
 							//- 	a#archive(href="/archive") Archive
-							ul.nav.navbar-nav.navbar-right
-								if user
-									li.navbar-text#user-name #{user.username}
-									li.navbar-text#log-out 
-										a(href="/auth/logout") Log Out
-								else
-									//- else display sign in link @ top right corner
-									li.navbar-text
-										a(id="sign-in" href="/auth/login") Sign In
-								li.fb-share-button.pull-left(data-href="http://billiards-notebook.herokuapp.com")
+						ul.nav.navbar-nav.navbar-right
+							if user
+								li.navbar-text#user-name #{user.username}
+								li.navbar-text#log-out 
+									a(href="/auth/logout") Log Out
+							else
+								//- else display sign in link @ top right corner
+								li.navbar-text
+									a(id="sign-in" href="/auth/login") Sign In
+							li.fb-share-button.pull-left(data-href="http://billiards-notebook.herokuapp.com")
 
 		block content
 
